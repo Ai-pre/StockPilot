@@ -69,12 +69,12 @@ flowchart TD
 
 | Tool / component | Responsibility |
 |:--|:--|
-| \`get_stock_price\` | KRX/pykrx 시세 |
-| \`get_news\` | Naver Search API 뉴스 |
-| \`get_disclosure\` | OpenDART 공시 |
-| \`lookup_glossary_term\` | 임베딩 기반 금융 용어 조회 |
-| \`find_positive_news_stocks\` | 사전에 정의된 기준의 후보 스크리닝 |
-| \`add_watchlist\` | 관심종목 기록 |
+| `get_stock_price` | KRX/pykrx 시세 |
+| `get_news` | Naver Search API 뉴스 |
+| `get_disclosure` | OpenDART 공시 |
+| `lookup_glossary_term` | 임베딩 기반 금융 용어 조회 |
+| `find_positive_news_stocks` | 사전에 정의된 기준의 후보 스크리닝 |
+| `add_watchlist` | 관심종목 기록 |
 
 ### 02 · Multi-turn context
 
@@ -82,7 +82,7 @@ flowchart TD
 
 ### 03 · Service reliability
 
-- SSE로 \`thinking → tool → response → glossary → done\` 순서의 진행 상황 전달
+- SSE로 `thinking → tool → response → glossary → done` 순서의 진행 상황 전달
 - 입력·출력 가드레일 및 민감정보 제한
 - API timeout/retry, LiteLLM fallback, Langfuse trace
 - Docker Compose + GCE 배포, GitHub Actions CI/CD
@@ -126,24 +126,24 @@ npm install
 npm run dev
 ```
 
-- FastAPI Docs: \`http://localhost:8000/docs\`
-- Frontend: \`http://localhost:5173\`
-- Containerized setup: \`docker compose up -d --build\`
+- FastAPI Docs: `http://localhost:8000/docs`
+- Frontend: `http://localhost:5173`
+- Containerized setup: `docker compose up -d --build`
 
-**Do not commit keys.** 필요한 \`UPSTAGE_API_KEY\`, Naver/OpenDART, Supabase, JWT 등의 설정은 [\`.env.example\`](.env.example)에 정리돼 있습니다.
+**Do not commit keys.** 필요한 `UPSTAGE_API_KEY`, Naver/OpenDART, Supabase, JWT 등의 설정은 [`.env.example`](.env.example)에 정리돼 있습니다.
 
 ## Repository Guide
 
 | Location | Content |
 |:--|:--|
-| [\`app/graph/\`](app/graph/) | LangGraph state, nodes, edges |
-| [\`app/agents/\`](app/agents/) | Agent/ReAct implementations |
-| [\`app/tools/\`](app/tools/) | Tool schemas, executor, registry |
-| [\`app/repositories/\`](app/repositories/) | KRX, news, disclosure, RAG, storage |
-| [\`app/api/\`](app/api/) | FastAPI routes, streaming, authentication |
-| [\`frontend/\`](frontend/) | React UI |
-| [\`tests/\`](tests/) | Unit & integration-related tests |
-| [\`.github/workflows/\`](.github/workflows/) | CI and GCE deployment |
+| [`app/graph/`](app/graph/) | LangGraph state, nodes, edges |
+| [`app/agents/`](app/agents/) | Agent/ReAct implementations |
+| [`app/tools/`](app/tools/) | Tool schemas, executor, registry |
+| [`app/repositories/`](app/repositories/) | KRX, news, disclosure, RAG, storage |
+| [`app/api/`](app/api/) | FastAPI routes, streaming, authentication |
+| [`frontend/`](frontend/) | React UI |
+| [`tests/`](tests/) | Unit & integration-related tests |
+| [`.github/workflows/`](.github/workflows/) | CI and GCE deployment |
 | [Original technical README](docs/README_BEFORE_PORTFOLIO_REFRESH.md) | API, environment, evaluation, deployment details |
 
 ## Limitations
